@@ -32,7 +32,7 @@ router.get('/users/:id', (req, res) => {
 // Update user
 router.put('/users/:id', (req, res) => {
   const { id } = req.params;
-  const { usuario, nombre, correo, contraseña } = req.body;
+  const { usuario, nombre, correo } = req.body;
 
   clientSchema
     .updateOne(
@@ -42,7 +42,6 @@ router.put('/users/:id', (req, res) => {
           usuario,
           nombre,
           correo,
-          contraseña,
         },
       }
     )
