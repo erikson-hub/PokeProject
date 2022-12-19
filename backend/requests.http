@@ -1,0 +1,11 @@
+###
+POST http://localhost:3000/api/users HTTP/1.1
+Content-Type: application/json
+
+{
+    "usuario": "Test",
+    "nombre": "Test Test",
+    "correo": "test@test.com",
+    "contraseña": "qweasd",
+    "list": ["POKEMON1", "POKEMON2", "POKEMON3"]
+}
