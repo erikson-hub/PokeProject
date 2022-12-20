@@ -8,22 +8,20 @@ body {
    display: flex;
    flex-direction: column;
    align-items: center;
-   background: url("../../assets/wallpaper2.jpg");
+   background-image: url("./assets/wallpaper.jpg");
    background-repeat: no-repeat;
    background-position: center center;
    background-size: cover;
    background-attachment: fixed;
 }
-.main-container {
-   width: 50%;
-   align-self: flex-end;
-   margin: 50px;
-   margin-right: 100px;
-}
 /* Nav bar */
 .navigator {
-   width: 100%;
+   position: fixed;
+   width: 45%;
    border-radius: 10px;
+   align-self: flex-end;
+   margin-top: 60px;
+   margin-right: 170px;
    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 nav {
@@ -44,13 +42,4 @@ nav {
    width: 120px;
    margin-left: 30px;
    background-color: #e15282;
-}
-/* Main content */
-.container {
-   width: 100%;
-   background-color: #fff;
-   border-radius: 10px;
-   margin: 35px 0 50px 0;
-   padding: 20px;
-   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
