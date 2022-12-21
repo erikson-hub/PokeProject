@@ -1,7 +1,9 @@
 const user = JSON.parse(localStorage.getItem("user"));
 console.log(user.id, user.name, user.email, user.username, user.list);
 
-let list = [
+let list = user.list;
+
+list = [
    "pikachu",
    "charmander",
    "bulbasaur",
@@ -14,6 +16,25 @@ let list = [
    "gengar",
    "kadabra",
 ]; // obtener de la base de datos
+
+function updateUser(id, name, email, username, list) {
+   fetch(`http://localhost:3000/api/users/${id}`, {
+      method: "PUT",
+      headers: {
+         "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+         name: name,
+         email: email,
+         username: username,
+         list: list,
+      }),
+   })
+      .then((response) => response.json())
+      .then((data) => {
+         console.log(data);
+      });
+}
 
 function createCard(data, container) {
    const card = document.createElement("div");
@@ -86,4 +107,10 @@ btns.forEach((btn) => {
       const pokemon = e.target.id;
       list = list.filter((item) => item !== pokemon);
    });
+});
+
+window.addEventListener("beforeunload", () => {
+   user.list = list;
+   localStorage.setItem("user", JSON.stringify(user));
+   updateUser(user.id, user.name, user.email, user.username, user.list);
 });

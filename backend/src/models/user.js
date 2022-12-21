@@ -19,6 +19,7 @@ const userSchema = mongoose.Schema({
   },
   list: {
     type: 'array',
+    required: true,
   },
 });
 module.exports = mongoose.model('User', userSchema);
