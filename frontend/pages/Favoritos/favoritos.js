@@ -3,19 +3,20 @@ console.log(user.id, user.name, user.email, user.username, user.list);
 
 let list = user.list;
 
-list = [
-   "pikachu",
-   "charmander",
-   "bulbasaur",
-   "squirtle",
-   "eevee",
-   "snorlax",
-   "mew",
-   "charizard",
-   "pidgeotto",
-   "gengar",
-   "kadabra",
-]; // obtener de la base de datos
+// list = [
+//    "pikachu",
+//    "charmander",
+//    "bulbasaur",
+//    "squirtle",
+//    "eevee",
+//    "snorlax",
+//    "mew",
+//    "charizard",
+//    "pidgeotto",
+//    "gengar",
+//    "kadabra",
+// ]; 
+// obtener de la base de datos
 
 function updateUser(id, name, email, username, list) {
    fetch(`http://localhost:3000/api/users/${id}`, {
