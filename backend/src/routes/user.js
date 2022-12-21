@@ -42,7 +42,6 @@ router.put('/users/:id', (req, res) => {
           username,
           name,
           email,
-          password,
           list,
         },
       }
