@@ -52,7 +52,7 @@ nav {
    border-radius: 10px;
    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
    overflow: hidden;
-   //margin-top: 35px;
+   /* margin-top: 35px; */
 }
 .container .form {
    width: 100%;
@@ -75,59 +75,91 @@ nav {
    background-color: #df222f;
    border-radius: 25px;
 }
-.form .input-campo {
+.form .form-control{
    position: relative;
    height: 50px;
    width: 100%;
    margin-top: 30px;
-}
-.input-campo input {
-   position: absolute;
-   height: 100%;
-   width: 100%;
-   padding: 0 35px;
+ }
+ 
+ .form-control input{
+   padding: 5px 12px;
+   width: 90%;
    border: none;
-   outline: none;
-   font-size: 16px;
-   border-bottom: 2px solid #ccc;
-   border-top: 2px solid transparent;
-   transition: all 0.2s ease;
-}
-.input-campo input:is(:focus, :valid) {
-   border-bottom-color: #181818;
-}
-.input-campo i {
-   position: absolute;
+ }
+ .form-control .uil {
+   /* position: absolute; */
    top: 50%;
    transform: translateY(-50%);
    color: #999;
    font-size: 23px;
    transition: all 0.2s ease;
-}
-.input-campo input:is(:focus, :valid) ~ i {
-   color: #df222f;
-}
-.input-campo i.icon {
+ }
+ 
+ .form-control .uil.icon {
    left: 0;
-}
-.form .text {
+ }
+ 
+ 
+ .form-control input:focus{
+   outline: 0;
+   border-color: #777;
+ }
+ 
+ 
+ .form-control.success {
+   border-color: #13c262;
+ 
+ }
+ 
+ .form-control.error {
+   border-color: #df3434;
+ }
+ 
+ .form-control .fas {
+   position: absolute;
+   right: -7px;
+   top: 16px;
+   visibility: hidden;
+ }
+ 
+ .form-control.error small{
+   visibility: visible;
+ }
+ 
+ .form-control small{
+   color: #0a0909;
+   position: absolute;
+   left: 0;
+   top: 48px;
+   visibility: hidden;
+   font-size: 12px;
+ }
+ 
+ .form-control.success i.fa-check-circle{
+   color: #13c262;
+   visibility: visible;
+ }
+ .form-control.error i.fa-exclamation-circle{
+   color: #df3434;
+   visibility: visible;
+ }
+ 
+ .form .text {
    color: #333;
    font-size: 14px;
-}
-.form a.text {
+ }
+ .form a.text {
    color: #df222f;
    text-decoration: none;
-}
-.form a:hover {
+ }
+ .form a:hover {
    text-decoration: underline;
-}
-.form .button-registro {
+ }
+ .form .button-registro {
    margin-top: 35px;
-}
-.form .button-registro {
-   margin-top: 35px;
-}
-.form .button-registro input {
+ }
+ .form .button-registro {
    border: none;
    color: #fff;
    font-size: 17px;
@@ -137,14 +169,18 @@ nav {
    background-color: #df222f;
    cursor: pointer;
    transition: all 0.3s ease;
-}
-.button-registro input:hover {
+   position: relative;
+   height: 50px;
+   width: 100%;
+   margin-top: 30px;
+ }
+ .button-registro:hover {
    background-color: #101010;
-}
-.form .login-signup {
+ }
+ .form .login-signup {
    margin-top: 25px;
    text-align: center;
-}
+ }
 .form .inicio {
    margin-top: 15px;
    text-align: center;
