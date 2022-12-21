@@ -29,4 +29,4 @@
 ### Integrantes:
 
 - Velasquez Rojas Erikson
--
+- Galindo Zúñiga Renzo
