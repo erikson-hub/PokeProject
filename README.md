@@ -3,6 +3,7 @@
 ### Este proyecto está desarrollado con las tecnologías:
 
 - HTML5
+- Jquery
 - JavaScript
 - Bootstrap 5
 - Express

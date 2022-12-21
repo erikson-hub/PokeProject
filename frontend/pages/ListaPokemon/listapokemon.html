@@ -1,68 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pokemons</title>
-    <!-------- Links CSS -------->
-    <link rel="icon" type="image/x-icon" href="../../assets/favicon.ico" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-      crossorigin="anonymous"
-    ></script>
-    <!-------- CSS -------->
-    <link rel="stylesheet" href="listapokemon.css" />
-  </head>
 
-  <body>
-    <div class="main-container">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Pokemons</title>
+   <!-------- Links CSS -------->
+   <link rel="icon" type="image/x-icon" href="../../assets/favicon.ico">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+   <!-------- CSS -------->
+   <link rel="stylesheet" href="listapokemon.css">
+   <!------- Jquery -------->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+
+<body>
+   <div class="main-container">
       <!--- Nav bar -->
       <nav class="navigator navbar navbar-expand-md">
-        <img src="../../assets/logo.png" alt="logo pokemon" class="logo" />
-        <div class="container-fluid">
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <a class="nav-link" id="Form" href="../Perfil/perfil.html"
-                  >Perfil</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="Form" href="#">Pokemons</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="Form" href="../Favoritos/favoritos.html"
-                  >Favoritos</a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
+         <img src="../../assets/logo.png" alt="logo pokemon" class="logo">
+         <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+               <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                     <a class="nav-link" id="Form" href="../Perfil/perfil.html">Perfil</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" id="Form" href="#">Pokemons</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" id="Form" href="../Favoritos/favoritos.html">Favoritos</a>
+                  </li>
+               </ul>
+            </div>
+         </div>
       </nav>
       <!-- Lista Pokemons -->
       <div class="container">
-        <p>Lista aqui</p>
+        <div class="row g-3">
+            
+        </div>
       </div>
-    </div>
-    <script src="./listapokemon.js"></script>
-  </body>
+   </div>
+
+   <!-- Modal Añadir -->
+   <div class="modal fade" id="anadirModal" tabindex="-1" aria-labelledby="anadirModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="anadirModalLabel">Añadir a favoritos</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body"></div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                  <button type="button" class="btn btn-success" data-bs-dismiss="modal" id="botonAnadir">Añadir</button>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- END Modal Añadir -->
+  <!-- Modal Quitar -->
+  <div class="modal fade" id="removerModal" tabindex="-1" aria-labelledby="removerModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="removerModalLabel">Remover a favoritos</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body"></div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="botonRemover">Remover</button>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- Modal Quitar -->
+
+   <script src="listapokemon.js"></script>
+</body>
+
 </html>
