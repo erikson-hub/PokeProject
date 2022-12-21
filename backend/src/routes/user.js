@@ -1,12 +1,12 @@
 const express = require('express');
-const clientSchema = require('../models/user');
+const userSchema = require('../models/user');
 
 const router = express.Router();
 
-// Create client
+// Create user
 router.post('/users', (req, res) => {
-  const client = clientSchema(req.body);
-  client
+  const user = userSchema(req.body);
+  user
     .save()
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
@@ -14,7 +14,7 @@ router.post('/users', (req, res) => {
 
 // Get all users
 router.get('/users', (req, res) => {
-  clientSchema
+  userSchema
     .find()
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
@@ -23,7 +23,7 @@ router.get('/users', (req, res) => {
 // Get ONE user
 router.get('/users/:id', (req, res) => {
   const { id } = req.params;
-  clientSchema
+  userSchema
     .findById(id)
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
@@ -32,16 +32,18 @@ router.get('/users/:id', (req, res) => {
 // Update user
 router.put('/users/:id', (req, res) => {
   const { id } = req.params;
-  const { usuario, nombre, correo } = req.body;
+  const { username, name, email, password, list } = req.body;
 
-  clientSchema
+  userSchema
     .updateOne(
       { _id: id },
       {
         $set: {
-          usuario,
-          nombre,
-          correo,
+          username,
+          name,
+          email,
+          password,
+          list,
         },
       }
     )
@@ -52,7 +54,7 @@ router.put('/users/:id', (req, res) => {
 // DELETE user
 router.delete('/users/:id', (req, res) => {
   const { id } = req.params;
-  clientSchema
+  userSchema
     .remove({ _id: id })
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
