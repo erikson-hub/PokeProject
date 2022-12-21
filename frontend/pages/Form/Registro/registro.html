@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +9,9 @@
    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ=="
+      crossorigin="anonymous" />
    <!-------- CSS -------->
    <link rel="stylesheet" href="./registro.css">
 </head>
@@ -45,30 +47,50 @@
             <div class="form signup">
                <span class="title">Formulario de Registro</span>
 
-               <form action="#">
-                  <div class="input-campo">
-                     <input type="text" placeholder="Introducir nombre completo" required>
-                     <i class="uil uil-user"></i>
+               <form action="#" class="form" id="form">
+
+                  <div class="form-control ">
+                  <i class="uil uil-user"></i>
+                     <input type="text" id="fullname" placeholder="Introducir nombre completo" autocomplete="off">
+                     <i class="fas fa-check-circle"></i>
+                     <i class="fas fa-exclamation-circle"></i>
+                     <small>Error Message</small>
                   </div>
-                  <div class="input-campo">
-                     <input type="text" placeholder="Introducir correo electronico" required>
+                     
+
+                  <div class="form-control">
                      <i class="uil uil-envelope icon"></i>
+                     <input type="text" id="email" placeholder="Introducir correo electronico" autocomplete="off">
+                  
+                     <i class="fas fa-check-circle"></i>
+                     <i class="fas fa-exclamation-circle"></i>
+                     <small>Error Message</small>
                   </div>
-                  <div class="input-campo">
-                     <input type="text" placeholder="Ingresar nombre de usuario" required>
+                  <div class="form-control">
                      <i class="uil uil-user"></i>
+                     <input type="text" id="username" placeholder="Ingresar nombre de usuario" autocomplete="off">
+                     <i class="fas fa-check-circle"></i>
+                     <i class="fas fa-exclamation-circle"></i>
+                     <small>Error Message</small>
                   </div>
-                  <div class="input-campo">
-                     <input type="password" class="password" placeholder="Ingresar contraseña" required>
+                  <div class="form-control">
                      <i class="uil uil-lock icon"></i>
-                  </div>
-                  <div class="input-campo">
-                     <input type="password" class="password" placeholder="Confirmar contraseña" required>
+                     <input type="password" id="password" class="password" placeholder="Ingresar contraseña" autocomplete="off">
+                     <i class="fas fa-check-circle"></i>
+                     <i class="fas fa-exclamation-circle"></i>
+                     <small>Error Message</small>
+                  </div>                    
+
+                  <div class="form-control">
                      <i class="uil uil-lock icon"></i>
+                     <input type="password" id="confirmPassword" class="password" placeholder="Confirmar contraseña" autocomplete="off">
+                     <i class="fas fa-check-circle"></i>
+                     <i class="fas fa-exclamation-circle"></i>
+                     <small>Error Message</small>
                   </div>
-                  <div class="input-campo button-registro">
-                     <input type="button" value="REGISTRARSE">
-                  </div>
+                  
+                     <input class="button-registro" type="submit" value="REGISTRARSE">
+                  
                </form>
 
                <div class="login-signup">
@@ -84,7 +106,7 @@
       </div>
       <!-- Fin de Registro -->
    </div>
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
    <script type="module" src="./registro.js"></script>
 </body>
-
 </html>
