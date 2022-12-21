@@ -1,6 +1,6 @@
 // obtener datos del usuario desde el local storage
 const user = JSON.parse(localStorage.getItem("user"));
-console.log(user.name, user.email, user.username, user.list);
+console.log(user.id, user.name, user.email, user.username, user.list);
 
 let list = user.list;
 // si se agregan nuevos pokemon agregar a new_list, guardar en la base de datos con los datos de user
@@ -9,3 +9,5 @@ let list = user.list;
 user = JSON.parse(localStorage.getItem("user"));
 user.list = list;
 localStorage.setItem("user", JSON.stringify(user));
+
+// open html index.html in browser

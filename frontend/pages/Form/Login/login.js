@@ -17,7 +17,6 @@ let list = [
 ]; // obtener de la base de datos
 
 // actualizar objeto user en el local storage
-/* Getting the user object from the local storage. */
 let user = JSON.parse(localStorage.getItem("user"));
 user.id = id;
 user.name = name;
