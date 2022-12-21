@@ -1,12 +1,6 @@
 // obtener datos del usuario desde el local storage
-// const user = JSON.parse(localStorage.getItem("user"));
-// console.log(user.name, user.email, user.username, user.list);
-
-
-//borrar este var user cuando se use el localstorage
-var user = {
-    list : []
-}
+const user = JSON.parse(localStorage.getItem("user"));
+console.log(user.name, user.email, user.username, user.list);
 
 // no borrar
 var list = user.list;
