@@ -5,13 +5,54 @@
 const user = JSON.parse(localStorage.getItem("user"));
 console.log(user._id, user.name, user.email, user.username, user.list);
 
-console.log(user._id)
+/* console.log(user._id)
 console.log(user.email)
 console.log(user.name)
 console.log(user.username)
+ */
+const id = user._id
 
 
-function deleteAcc(id) {
+function deletedUser(id) {
+    fetch(`http://localhost:3000/api/users/${id}`, {
+        method: 'DELETE'
+    })
+        .then((response) => response.json())
+        .then((data) => console.log(data));
+
+}
+
+/* function deletedAcc(id) {
+
+    console.log(id)
+    swal({
+        title: "Desea continuar?",
+        text: "Está seguro de eliminar su perfil? Una vez los datos sea borados estos no son recuperables",
+        type: "Advertencia",
+        showCancelButton: true,
+        confirmButtonClass: "btn-danger",
+        confirmButtonText: "Si, deseo eliminar mi cuenta!",
+        cancelButtonText: "No, no deseo borar mi cuenta!",
+        closeOnConfirm: false,
+        closeOnCancel: false
+    }).then(
+
+        function (isConfirm) {
+            if (isConfirm) {
+                swal("Deleted!", "Su cuenta ha sido borrada con éxito.", "success");
+                deletedUser(id)
+                window.location.href = "../../index.html"
+            } else {
+                swal("Eliminación cancelada", "Su cuenta no ha sido borrada :)", "error");
+            }
+            
+        });
+        
+    } */
+
+const deleteButton = document.getElementById('delete-btn')
+
+function deletedAcc(id) {
 
     swal({
         title: "Desea continuar?",
@@ -23,15 +64,26 @@ function deleteAcc(id) {
         cancelButtonText: "No, no deseo borar mi cuenta!",
         closeOnConfirm: false,
         closeOnCancel: false
-    },
+    }).then(
+
         function (isConfirm) {
             if (isConfirm) {
                 swal("Deleted!", "Su cuenta ha sido borrada con éxito.", "success");
+                deletedUser(id)
+                window.location.href = "../../index.html"
             } else {
-                swal("Cancelled", "Your imaginary file is safe :)", "error");
+                swal("Eliminación cancelada", "Su cuenta no ha sido borrada :)", "error");
             }
+
         });
 }
+
+
+deleteButton.addEventListener('click', () => {
+    deletedAcc(id)
+})
+
+
 
 // mostrar datos en el formulario
 /* let name = user.name;
@@ -46,34 +98,19 @@ let username = user.username; */
 /* user.name = name;
 user.email = email;
 user.username = username;
-localStorage.setItem("user", JSON.stringify(user));
+localStorage.setItem("user", JSON.stringify(user)); */
 
-function deleteUser(id) {
-    fetch(`http://localhost:3000/api/users/${id}`, {
-        method: "DELETE",
-        headers: {
-            'Content-Type': 'aplication/json'
-        },
 
-        body: JSON.stringify({
-            name: name,
-            email: email,
-            username: username,
-            list: list,
-        }),
-    })
-        .then((reponse) => reponse.json())
-        .then((data) => {
-            console.log(data);
-        });
-}
- */
-/* function llenarTabla() {
+
+
+
+
+
+function llenarTabla() {
     let body = document.querySelector('#tabla tbody')
     tbody.innerHTML = '';
 
-    let infoUser = JSON.parse(localStorage.getItem("user"));
-    let bucleInfo = infoUser.length
+    let bucleInfo = user.length
 
     for (let i = 0; i < bucleInfo; i++) {
 
@@ -83,9 +120,9 @@ function deleteUser(id) {
         let celdaEmail = document.childElement('td');
         let celdaName = document.childElement('td');
 
-        let nodeUname = document.createElement(infoUser[i]);
-        let nodeEmail = document.createElement(infoUser[i]);
-        let nodeName = document.createElement(infoUser[i]);
+        let nodeUname = document.createElement(user.username[i]);
+        let nodeEmail = document.createElement(user.email[i]);
+        let nodeName = document.createElement(user.name[i]);
 
         fila.appendChild(celdaName.appendChild(nodeName));
         fila.appendChild(celdaEmail.appendChild(nodeEmail));
@@ -94,4 +131,6 @@ function deleteUser(id) {
         tbody.appendChild(fila);
     }
 
-} */
+}
+
+llenarTabla();
