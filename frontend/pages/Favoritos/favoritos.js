@@ -1,22 +1,7 @@
 const user = JSON.parse(localStorage.getItem("user"));
-console.log(user.id, user.name, user.email, user.username, user.list);
+console.log(user._id, user.name, user.email, user.username, user.list);
 
 let list = user.list;
-
-// list = [
-//    "pikachu",
-//    "charmander",
-//    "bulbasaur",
-//    "squirtle",
-//    "eevee",
-//    "snorlax",
-//    "mew",
-//    "charizard",
-//    "pidgeotto",
-//    "gengar",
-//    "kadabra",
-// ]; 
-// obtener de la base de datos
 
 function updateUser(id, name, email, username, list) {
    fetch(`http://localhost:3000/api/users/${id}`, {
@@ -81,7 +66,7 @@ function createCard(data, container) {
                .join("")}
          </ul>
       </div>
-      <button class="btn" id='${data.name}'>Remove</button>
+      <button class="btn" id='${data.name}'>Eliminar</button>
    `;
    container.appendChild(card);
 }
@@ -107,11 +92,19 @@ btns.forEach((btn) => {
       e.target.parentElement.remove();
       const pokemon = e.target.id;
       list = list.filter((item) => item !== pokemon);
+      localStorage.setItem("user", JSON.stringify(user));
+      user.list = list;
+      localStorage.setItem("user", JSON.stringify(user));
+      updateUser(user._id, user.name, user.email, user.username, user.list);
    });
 });
 
-window.addEventListener("beforeunload", () => {
-   user.list = list;
-   localStorage.setItem("user", JSON.stringify(user));
-   updateUser(user.id, user.name, user.email, user.username, user.list);
-});
+// window.addEventListener("beforeunload", () => {
+//    user.list = list;
+//    localStorage.setItem("user", JSON.stringify(user));
+//    try {
+//       updateUser(user._id, user.name, user.email, user.username, user.list);
+//    } catch (error) {
+//       console.log(error);
+//    }
+// });
