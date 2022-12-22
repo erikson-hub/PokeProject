@@ -1,6 +1,6 @@
 const user = JSON.parse(localStorage.getItem("user"));
 console.log(user._id, user.name, user.email, user.username, user.list);
-
+console.log(user);
 let list = user.list;
 
 function updateUser(id, name, email, username, list) {

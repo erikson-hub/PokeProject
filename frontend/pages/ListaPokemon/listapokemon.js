@@ -105,7 +105,9 @@ function anadirAFavoritosModal(e) {
 
 function removerDeFavoritosModal(e) {
    list.splice(list.indexOf(pokemonActual), 1);
-
+   user.list = list;
+   localStorage.setItem("user", JSON.stringify(user));
+   updateUser(user._id, user.name, user.email, user.username, user.list);
    let pos = user.list.indexOf(`${pokemonActual}`);
    console.log("INDEX DEL POKEMON A REMOVER: " + pos);
    user.list.splice(pos, 1);
