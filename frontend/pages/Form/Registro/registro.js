@@ -18,7 +18,7 @@ function createUser() {
       name: fullnameVal,
       email: emailVal,
       password: passwordVal,
-      list: '[]',
+      list: [],
     }),
   })
     .then((response) => response.json())
@@ -26,7 +26,7 @@ function createUser() {
       console.log(data);
       // actualizar objeto user en el local storage
       let user = JSON.parse(localStorage.getItem('user'));
-      user.id = data._id; // obtener de la base de datos despues de registrar
+      user._id = data._id; // obtener de la base de datos despues de registrar
       user.name = data.name;
       user.email = data.email;
       user.username = data.username;
