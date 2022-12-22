@@ -73,6 +73,7 @@ function createCard(data, container) {
 
 // buscar pokemon por nombre
 const searchPokemon = async (pokemon, container) => {
+   console.log(pokemon);
    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
    const data = await response.json();
    if (data) {

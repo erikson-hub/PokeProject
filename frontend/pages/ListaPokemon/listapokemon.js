@@ -104,6 +104,8 @@ function anadirAFavoritosModal(e) {
 }
 
 function removerDeFavoritosModal(e) {
+   list.splice(list.indexOf(pokemonActual), 1);
+
    let pos = user.list.indexOf(`${pokemonActual}`);
    console.log("INDEX DEL POKEMON A REMOVER: " + pos);
    user.list.splice(pos, 1);
