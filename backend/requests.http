@@ -7,8 +7,7 @@ Content-Type: application/json
     "name": "Test Test",
     "email": "test@test.com",
     "password": "qweasd",
-    "list": ["pikachu","charmander","bulbasaur","squirtle","eevee","snorlax","mew","charizard","pidgeotto","gengar","kadabra"
-]
+    "list": ["bulbasaur","squirtle","eevee","snorlax","mew","charizard","pidgeotto","gengar","kadabra"]
 }
 
 
