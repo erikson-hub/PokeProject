@@ -41,9 +41,13 @@ nav {
    color: #fff;
 }
 .logo {
-   width: 120px;
-   margin-left: 30px;
-   background-color: #e15282;
+   width: 30%;
+   margin-bottom: 1rem;
+   margin-left: 16rem;
+   margin-right: 15rem;
+
+   /* margin-left: 30px; */
+   /* background-color: #e15282; */
 }
 /* Main content */
 .container {
